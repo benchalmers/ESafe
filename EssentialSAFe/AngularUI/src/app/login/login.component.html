@@ -1,0 +1,8 @@
+<div *ngIf="!loggedin" [hidden]="loggedin">
+    <div>User Name <input [(ngModel)]="login.user"></div>
+    <div>Password <input [(ngModel)]="login.password"></div>
+    <button id="loginbutton" (click)="submit(login)">Log In</button>
+</div>
+<div *ngIf="loggedin" [hidden]="!loggedin">
+    <div><ng-content *ngIf="loggedin"></ng-content></div>
+</div>
