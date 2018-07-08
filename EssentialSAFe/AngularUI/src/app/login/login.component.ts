@@ -61,11 +61,16 @@ export class LoginComponent implements OnInit {
         .set('Content-Type', 'application/x-www-form-urlencoded')
     });
   }
+  logout(): void {
+    this.access_token = null;
+    this.loggedin = false;
+  }
   submit(login: LogIn):void {
     this.getLogin(login).subscribe( 
                                (data : AccessToken) => {
                                   this.loggedin = true;
                                   this.access_token = data.access_token;
+                                  login.password = "";
                                 },
                                 err => {
                                   alert("error");

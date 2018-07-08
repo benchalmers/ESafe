@@ -1,8 +1,14 @@
 <div *ngIf="!loggedin" [hidden]="loggedin">
-    <div>User Name <input [(ngModel)]="login.user"></div>
-    <div>Password <input [(ngModel)]="login.password"></div>
-    <button id="loginbutton" (click)="submit(login)">Log In</button>
+    <div class="card">
+        <div class="card-body">
+            <div class="row"><div class="input-group mb-3"><input class="form-control" placeholder="Username" aria-label="Username" [(ngModel)]="login.user"></div></div>
+            
+            <div class="row"><input placeholder="Password" aria-label="Password" class="mb-3 form-control" [(ngModel)]="login.password"></div>
+            <div class="row"><button class="btn btn-primary" id="loginbutton" (click)="submit(login)">Log In</button></div>
+        </div>
+    </div>
 </div>
 <div *ngIf="loggedin" [hidden]="!loggedin">
+    <div><button class="btn btn-secondary btn-sm float-right" (click)="logout()">Log out</button></div>
     <div><ng-content *ngIf="loggedin"></ng-content></div>
 </div>

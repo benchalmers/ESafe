@@ -1,0 +1,68 @@
+<div class="card mb-3">
+  <div *ngIf="!editing" class="card-body">
+    <button class="btn btn-secondary float-right btn-sm" (click)="edit()">Edit</button>
+    <h5 class="card-title">{{feature.Name}} - WSJF {{feature.WSJF}}</h5>
+    
+    <div><b>Hypothesis: </b>{{feature.Hypothesis}}</div>
+  </div>
+  <div *ngIf="editing" class="card-body">
+      <span class="btn-group float-right mb-3" role="group">
+        <button class="btn btn-danger btn-primary btn-sm" (click)="delete()">Delete</button>
+        <button class="btn btn-primary btn-sm" (click)="save()">Save</button>
+      </span>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Brief description of feature</span>
+        </div>
+        <input class="form-control" [(ngModel)]="feature.Name">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Value hypothesis</span>
+        </div>
+        <input class="form-control" [(ngModel)]="feature.Hypothesis">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Nonfunctional Requirements</span>
+        </div>
+        <input class="form-control" [(ngModel)]="feature.NonFunctional">
+      </div>
+      <div class="row">
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Business Value</span>
+                </div>
+                <input class="form-control" type="number" [(ngModel)]="feature.BusinessValue">
+              </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Opportunity</span>
+                </div>
+                <input class="form-control" type="number" [(ngModel)]="feature.Opportunity">
+              </div>
+
+        </div>
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Urgency</span>
+                </div>
+                <input class="form-control" type="number" [(ngModel)]="feature.Urgency">
+              </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Size</span>
+                </div>
+                <input class="form-control" type="number" [(ngModel)]="feature.Size">
+              </div>
+        </div>
+        
+      </div>
+    </div>  
+</div>

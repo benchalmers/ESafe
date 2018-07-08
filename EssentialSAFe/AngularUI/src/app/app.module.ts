@@ -6,13 +6,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FeatureComponent } from './feature/feature.component';
+import { FeatureCardComponent } from './feature-card/feature-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FeatureComponent
+    FeatureComponent,
+    FeatureCardComponent
   ],
   imports: [
     BrowserModule,
