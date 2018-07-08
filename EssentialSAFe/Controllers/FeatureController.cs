@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Data.Entity;
 using EssentialSAFe.Models;
 
 
@@ -24,11 +25,20 @@ namespace EssentialSAFe
             return Ok();
         }
 
+        [Route("{id}/AddStory")]
+        public async Task<IHttpActionResult> PostStory(int id, StoryModel story)
+        {
+            FeatureModel feature = await db.Features.FindAsync(id);
+            feature.Stories.Add(story);
+            await db.SaveChangesAsync();
+            return Ok();
+        }
+
         [Route("List")]
         public List<FeatureModel> GetFeatures()
         {
             List<FeatureModel> features;
-            features = db.Features.ToList();
+            features = db.Features.Include(feature => feature.Stories).ToList();
             return features;
         }
         

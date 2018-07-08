@@ -3,6 +3,7 @@ namespace EssentialSAFe.Models
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Collections.Generic;
 
     public class SAFeModels : DbContext
     {
@@ -18,6 +19,7 @@ namespace EssentialSAFe.Models
         }
 
         public virtual DbSet<FeatureModel> Features { get; set; }
+        public virtual DbSet<StoryModel> Stories { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
@@ -30,6 +32,13 @@ namespace EssentialSAFe.Models
 
     }
 
+    public class StoryModel
+    {
+        public int Id { get; set; }
+        public string Story { get; set; }
+        public int StoryPoints { get; set; }
+    }
+
     public class FeatureModel {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -40,6 +49,11 @@ namespace EssentialSAFe.Models
         public int Urgency { get; set; }
         public int Size { get; set; }
         public float WSJF { get; set; }
+        public ICollection<StoryModel> Stories { get; set; }
+        public FeatureModel()
+        {
+            this.Stories = new List<StoryModel>();
+        }
     }
 
     //public class MyEntity

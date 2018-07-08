@@ -1,9 +1,13 @@
 <div class="card mb-3">
   <div *ngIf="!editing" class="card-body">
-    <button class="btn btn-secondary float-right btn-sm" (click)="edit()">Edit</button>
+     <span class="btn-group float-right mb-3" role="group">
+        <button class="btn btn-success btn-sm" (click)="addStory()">Add Story</button>
+        <button class="btn btn-secondary btn-sm" (click)="edit()">Edit</button>
+      </span>
     <h5 class="card-title">{{feature.Name}} - WSJF {{feature.WSJF}}</h5>
     
     <div><b>Hypothesis: </b>{{feature.Hypothesis}}</div>
+    <div><span><app-story *ngFor="let story of feature.Stories" [story]=story></app-story></span></div>
   </div>
   <div *ngIf="editing" class="card-body">
       <span class="btn-group float-right mb-3" role="group">

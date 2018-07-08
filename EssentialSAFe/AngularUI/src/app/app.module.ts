@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FeatureComponent } from './feature/feature.component';
 import { FeatureCardComponent } from './feature-card/feature-card.component';
+import { StoryComponent } from './story/story.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FeatureCardComponent } from './feature-card/feature-card.component';
     AppComponent,
     LoginComponent,
     FeatureComponent,
-    FeatureCardComponent
+    FeatureCardComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,

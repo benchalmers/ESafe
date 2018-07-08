@@ -1,5 +1,12 @@
 <div>
   <h2>Features Backlog</h2>
-  <app-feature-card *ngFor="let feature of features; trackBy : trackById" [feature]=feature (updated)="onUpdate($event)" (deleted)="onDelete($event)"></app-feature-card>
+  <app-feature-card 
+    *ngFor="let feature of features; trackBy : trackById" 
+    [feature]=feature 
+    (updated)="onUpdate($event)" 
+    (deleted)="onDelete($event)"
+    (newStory)="onNewStory($event)"
+    >
+  </app-feature-card>
   <button class="btn btn-primary btn-large" (click)="newFeature()">Add Feature To Backlog</button>
 </div>

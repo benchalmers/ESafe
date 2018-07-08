@@ -1,0 +1,22 @@
+<span class="mr-3 mb-3"><div class="card text-white bg-success" style="min-width: 18rem; max-width: 18rem; display: inline-block;">
+  <div class="card-header">
+    Story
+    <button *ngIf="!editing" class="btn btn-sm btn-secondary float-right" (click)="edit()">Edit</button>
+    <button *ngIf="editing" class="btn btn-sm btn-primary float-right" (click)="save()">Save</button>
+  </div>
+  <div *ngIf="!editing" class="card-body">
+    <div>{{story.Story}}</div>
+    <div>{{story.StoryPoints}}</div>
+  </div>
+  <div *ngIf="editing" class="card-body">
+      <div class="input-group mb-3">
+        <input class="form-control" [(ngModel)]="story.Story">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Story Points</span>
+        </div>
+        <input class="form-control" type="number" [(ngModel)]="story.StoryPoints">
+      </div>
+  </div>
+</div></span>

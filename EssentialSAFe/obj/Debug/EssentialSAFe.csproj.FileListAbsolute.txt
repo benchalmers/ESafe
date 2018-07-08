@@ -88,3 +88,6 @@ c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe
 c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.csprojResolveAssemblyReference.cache
 c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.dll
 c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.pdb
+c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.Migrations.InitialCreate.resources
+c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.csproj.GenerateResource.Cache
+c:\users\bench\documents\visual studio 2015\Projects\EssentialSAFe\EssentialSAFe\obj\Debug\EssentialSAFe.Migrations.Stories.resources

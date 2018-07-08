@@ -11,7 +11,7 @@ export interface CreateFeature {
   BusinessValue : number,
   Opportunity : number,
   Urgency: number,
-  Size: number,
+  Size: number
 }
 
 export interface UpdateFeature extends CreateFeature {
@@ -19,9 +19,15 @@ export interface UpdateFeature extends CreateFeature {
 }
 
 export interface Feature extends UpdateFeature{
-  WSJF: number
+  WSJF: number,
+  Stories : CreateStory
 };
 
+export interface CreateStory {
+  Story: string,
+  StoryPoints : number,
+  FeatureId: number
+}
 
 @Injectable({providedIn: 'root'})
 class FeatureService{
@@ -35,6 +41,9 @@ class FeatureService{
   }
   async addFeature(access_token: string, feature: CreateFeature){
     await this.http.post('/api/Feature/Add',feature, {headers : new HttpHeaders().set('Authorization','Bearer '+access_token)}).toPromise();
+  }
+  async addStory(access_token: string, story: CreateStory) {
+    await this.http.post('/api/Feature/'+story.FeatureId.toString()+'/AddStory', story, {headers : new HttpHeaders().set('Authorization','Bearer '+access_token)}).toPromise();
   }
   async updateFeature(access_token: string, feature: UpdateFeature){
     await this.http.put('/api/Feature/'+feature.Id.toString(), feature, {headers : new HttpHeaders().set('Authorization','Bearer '+access_token)}).toPromise();
@@ -61,7 +70,8 @@ export class FeatureComponent implements OnInit {
   }
 
   async updateFeatures(){
-    await this.featureserv.getList(this.access_token).then(features => this.features = features.sort((a,b) => b.WSJF-a.WSJF))
+    await this.featureserv.getList(this.access_token).then(features => this.features = features.sort((a,b) => b.WSJF-a.WSJF));
+    console.log(this.features);
   }
 
   public get access_token():string {
@@ -71,6 +81,11 @@ export class FeatureComponent implements OnInit {
   trackById(index, feature:Feature)
   {
     return feature.Id;
+  }
+
+  async onNewStory(story){
+    await this.featureserv.addStory(this.access_token, story);
+    await this.updateFeatures();
   }
 
   async onUpdate(newfeature){
